@@ -1,5 +1,5 @@
 .list {
-  width: 530px;
+  width: 550px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
@@ -18,8 +18,8 @@
     0px 1px 3px rgba(0, 0, 0, 0.12);
 }
 .text {
-  font-size: 20px;
-  margin: 8px;
+  font-size: 19px;
+  margin: 8px 0 8px 0;
 }
 
 .btn {

@@ -10,8 +10,8 @@ const ContactList = ({ contacts, onClick }) => {
     <ul className={s.list}>
       {contacts.map(({ id, name, number }) => (
         <li key={id} className={s.item}>
-          <p className={s.text}> {name} :</p>
-          <p className={s.text}> {number} </p>
+          <p className={s.text}>{name} :</p>
+          <p className={s.text}>{number} </p>
 
           <button
             type="button"
@@ -34,6 +34,6 @@ ContactList.propTypes = {
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
 };
 export default ContactList;

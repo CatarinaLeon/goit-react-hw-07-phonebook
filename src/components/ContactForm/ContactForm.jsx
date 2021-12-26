@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Component } from "react";
 import PropTypes from "prop-types";
 import s from "./ContactForm.module.css";
 
@@ -32,7 +31,7 @@ const ContactForm = ({ onSubmit }) => {
     <div className={s.contactform}>
       <form onSubmit={handleSubmit}>
         <label className={s.contactLabel}>
-          Name:
+          Name :
           <input
             type="text"
             name="name"
@@ -45,7 +44,7 @@ const ContactForm = ({ onSubmit }) => {
           />
         </label>
         <label htmlFor="" className={s.contactLabel}>
-          Number:
+          Number :
           <input
             type="tel"
             name="number"
