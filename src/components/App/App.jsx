@@ -4,28 +4,22 @@ import { nanoid } from "nanoid";
 import ContactForm from "../ContactForm/ContactForm.jsx";
 import Filter from "../SearchFilter/SearchFilter.jsx";
 import ContactList from "../ContactList/ContactList.jsx";
-// import * as storage from "../../services/localStorage";
-import { contactsOperations } from "../../redux/contactSlice";
-import * as actions from "../../redux/contactSlice/contactsSlice";
+import {
+  contactsActions,
+  contactsOperations,
+  contactsSelectors,
+} from "../../redux/contactSlice";
 
 const { getContacts, addContact, deleteContact } = contactsOperations;
 
 const App = () => {
-  const contacts = useSelector((state) => state.contacts.items);
-  const filter = useSelector((state) => state.contacts.filter);
+  const contacts = useSelector(contactsSelectors.getContacts);
+  const filter = useSelector(contactsSelectors.getFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getContacts());
-    // const contacts = storage.get("contacts");
-    // if (contacts && contacts.length > 0) {
-    //   dispatch(actions.setContacts(contacts));
-    // }
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   storage.save("contacts", contacts);
-  // }, [contacts]);
 
   const addNewContact = (name, number) => {
     const contactName = { name, number, id: nanoid() };
@@ -45,9 +39,6 @@ const App = () => {
     }
   };
 
-  // const deleteContact = (id) => {
-  //   dispatch(contacts.filter((contact) => contact.id !== id));
-  // };
   const removeContact = (id) => {
     dispatch(deleteContact(id));
   };
@@ -59,7 +50,7 @@ const App = () => {
   };
 
   const updateFilter = (event) => {
-    dispatch(actions.updateFilter(event.currentTarget.value));
+    dispatch(contactsActions.updateFilter(event.currentTarget.value));
   };
 
   return (
